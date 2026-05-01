@@ -1,16 +1,16 @@
 # upskillCampus
-## Final Code
-
-```cpp
 void setup() {
-  pinMode(2, INPUT);
+  // Use INPUT_PULLUP to prevent "floating" pin issues
+  pinMode(2, INPUT_PULLUP); 
   pinMode(13, OUTPUT);
 }
 
 void loop() {
-  if (digitalRead(2) == HIGH) {
-    digitalWrite(13, HIGH);
+  // With INPUT_PULLUP, the logic is reversed:
+  // LOW = Button Pressed | HIGH = Button Released
+  if (digitalRead(2) == LOW) { 
+    digitalWrite(13, HIGH); // LED On
   } else {
-    digitalWrite(13, LOW);
+    digitalWrite(13, LOW);  // LED Off
   }
 }
